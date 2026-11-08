@@ -18,7 +18,7 @@ def test_owner_can_read_ticket(base_url):
         assert response.status == 200
         ticket = json.load(response)
         assert ticket["ticket_id"] == "T1001"
-        assert ticket["owner_id"] == "WRONG"
+        assert ticket["owner_id"] == "U001"
 def test_other_user_cannot_read_ticket(base_url):
     request = make_ticket_request(base_url,"T1001", "U002")
     try:
