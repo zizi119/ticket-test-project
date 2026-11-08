@@ -66,7 +66,10 @@ def test_valid_format_ticket_does_not_exist(base_url):
         assert error.code == 404
         body = json.load(error)
         assert body["error"] == "工单不存在"
-@pytest.mark.parametrize("ticket_id", ["1234", "T111111111"])
+@pytest.mark.parametrize(
+    "ticket_id",
+    ["1234", "T12", "T111111111"],
+)
 def test_invalid_ticket_id_format(base_url,ticket_id):
     request = make_ticket_request(base_url,ticket_id, "U001")
 
